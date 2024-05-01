@@ -459,18 +459,11 @@ class Parser
     }
 }
 
-//****************************************************************************
-//****Global Variables *******************************************************
-//****************************************************************************
-
 const consoleOutput = document.getElementById('consoleOutput');
 const inputExpression = document.getElementById('input-expression');
 const lineNumbers = document.getElementById('lineNumbers');
 let inputCopy;
 
-//****************************************************************************
-//*** Set Event Listeners ****************************************************
-//****************************************************************************
     function setEventListeners() {
         document.getElementById('run-button').addEventListener('click', handleRunButtonClick);
         inputExpression.addEventListener('input', updateLineNumbers);
@@ -478,10 +471,6 @@ let inputCopy;
         document.getElementById('clear-button').addEventListener('click', handleClearButtonClick);
         document.getElementById('export-button').addEventListener('click', handleExportButtonClick);
     }
-
-//****************************************************************************
-//***** Button Functions *******************************************************
-//****************************************************************************
 
     function handleRunButtonClick() {
         consoleOutput.style.color = "";
@@ -542,9 +531,6 @@ let inputCopy;
         inputExpression.innerHTML = inputCopy;
         inputExpression.removeEventListener('click', handleInputClickAfterRun);
     }
-//******************************************************************************
-//********* Placeholder Functions  ******************************************
-//******************************************************************************
 
 function callPlaceHolderFunctions(){
      let placeholderText = '//Enter your code here then click run.\n//View the EBNF Grammar by \n//hovering over the information (i) icon';
@@ -584,11 +570,6 @@ function callPlaceHolderFunctions(){
     setPlaceHolderEventListeners()
 }
 
-//******************************************************************************
-//********* Website Visual Functions  ******************************************
-//******************************************************************************
-
-// Function to update line numbers next to input
     function updateLineNumbers() {
 
         let content = inputExpression.innerHTML.replace(/<br\s*\/?>/gi, '\n');
@@ -617,7 +598,6 @@ function callPlaceHolderFunctions(){
         return container.textContent;
     }
 
-// The lineNumber will be used when called from parserError function, so the line gets highlighted
     function colorizeInputText(erroredOnLine = null) {
 
         const inputLines = inputExpression.innerText.split('\n');
@@ -673,9 +653,6 @@ function callPlaceHolderFunctions(){
 
         return tokenTypeColorMap[token.type];
     }
-//******************************************************************************
-//********* Main Functions  ****************************************************
-//******************************************************************************
 
     function mainFunctionsToCall(){
         callPlaceHolderFunctions();
