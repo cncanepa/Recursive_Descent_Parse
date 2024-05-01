@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recursive Descent Parser</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<div class="container">
+
+    <div class="button-container">
+        <button id="documentation-button">Documentation</button>
+        <h1>Recursive Descent Parser by Corin Canepa</h1>
+        <button id="run-button">Run</button>
+        <button id="clear-button">Clear</button>
+        <button id="export-button">Export</button>
+        <div class="info-button-container">
+            <button class="info-button">i</button>
+            <div class="help-box">
+                <b>The EBNF Grammar for the language</b><br><br>
+                &lt;program&gt;  --&gt;program &lt;statements&gt;end_program<br>
+                &lt;statements&gt;--&gt;&lt;state&gt;{; &lt;state&gt;};<br>
+                &lt;statement&gt;--&gt;&lt;assign&gt;| &lt;loop&gt;| &lt;if&gt;<br>
+                &lt;assign&gt;--&gt;&lt;var&gt;= &lt;expression&gt;<br>
+                &lt;expr&gt;--&gt;&lt;term&gt;{(+|-|*|/|%) &lt;term&gt;}<br>
+                &lt;term&gt;--&gt;&lt;var&gt;| (&lt;factor&gt;)<br>
+                &lt;var&gt;--&gt;&lt;id&gt;| &lt;num&gt;<br>
+                &lt;loop&gt;--&gt;loop(&lt;var&gt;=&lt;var&gt;:&lt;var&gt;)&lt;state&gt;end_loop<br>
+                &lt;if&gt;--&gt;if( &lt;logic&gt;) &lt;statements&gt;end_if<br>
+                &lt;logic&gt;--&gt;&lt;var&gt;(== | != | &gt;| &lt;| &gt;= | &lt;=) &lt;var &gt;<br>
+                &lt;id&gt;--&gt;&lt;letter&gt;{&lt;letter&gt;|&lt;digit&gt;}<br>
+                &lt;num&gt;--&gt;digit {digit}<br>
+                &lt;letter&gt;--&gt;A|B|C|D..|Z|a|b|..|z|<br>
+                &lt;digit&gt;--&gt;0|1|2|3..|9|<br>
+
+            </div>
+        </div>
+    </div>
+    <div class="ide-container">
+        <div class="input-container">
+
+            <div class="code-editor-heading">
+                <div class="line-numbers" id="lineNumbers"></div>
+                <pre id="input-expression" class="code-editor"  contenteditable="true" spellcheck="false" oninput="updateLineNumbers()"></pre>
+            </div>
+        </div>
+        <div class="console">
+            <pre id="consoleOutput">This is the console output</pre>
+        </div>
+    </div>
+</div>
+<script src="script.js"></script>
+
+</body>
+</html>
